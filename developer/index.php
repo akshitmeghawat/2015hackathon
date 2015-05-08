@@ -34,7 +34,7 @@
     <script type="text/javascript">
         function showMyProject(){
           console.log("clicked1");
-          document.getElementById('myProject').style.display = "inline-block";
+          document.getElementById('myProject').style.display = "block";
           document.getElementById('allCurrentProjects').style.display = "none";
           document.getElementById('developers').style.display = "none";
           document.getElementById('editProfile').style.display = "none";
@@ -244,59 +244,39 @@
                 </div>
                 <!-- /.row -->
 
-                <div class="row" id="myProject"> my project</div>
-
-
-                <div class="row" id="allCurrentProjects">
-                    <div class="col-lg-10">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <i class="fa fa-file-archive-o fa-fw"></i> Current Projects
-                                <div class="pull-right">
-                                    <div class="input-group custom-search-form">
-                                        <input type="text" class="form-control" placeholder="Search...">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-default" type="button">
-                                                <i class="fa fa-search"></i>
-                                            </button>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.panel-heading -->
-                        </div>
-                        <!-- /.panel -->
-                    </div>
-                    <!-- /.col-lg-12 -->
+                <div class="row" id="myProject">
                     <div class="col-lg-10">
                         <div class="panel panel-default">
                           <!-- Default panel contents -->
-                          <div class="panel-heading">Projects</div>
+                          <div class="panel-heading">Project Title</div>
+                          <div class="panel-body">
+                            <p>Description: </p>
+                        </div>
+                    </div>
 
-                          <!-- Table -->
-                          <table class="table">
-                              <tr>
-                                  <td colspan="1">#</td>
-                                  <td colspan="2">Project Name</td>
-                                  <td colspan="5">Region</td>
-                              </tr>
-                              <tr>
-                                  <td colspan="1">1</td>
-                                  <td colspan="2">Analyzer</td>
-                                  <td colspan="5">Asia</td>
-                              </tr>
-                          </table>
+                    <!-- List group -->
+                    <ul class="list-group">
+                        <li class="list-group-item">ID: </li>
+                        <li class="list-group-item">Product Owner: </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-sm-2">Start date:</div>
+                                <div class="col-sm-2">21-2-15</div>
+                                <div class="col-sm-2 col-sm-offset-2">End date:</div>
+                                <div class="col-sm-2">31-12-15</div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">Developers: abc,xyz</li>
+                    </ul>
+                </div>
+            </div>
 
-                      </div>
-                  </div>
-              </div>
-              <!-- /.row -->
 
-              <div class="row" id="developers">
+            <div class="row" id="allCurrentProjects">
                 <div class="col-lg-10">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-users fa-fw"></i> Developers Listing
+                            <i class="fa fa-file-archive-o fa-fw"></i> Current Projects
                             <div class="pull-right">
                                 <div class="input-group custom-search-form">
                                     <input type="text" class="form-control" placeholder="Search...">
@@ -322,14 +302,12 @@
                       <table class="table">
                           <tr>
                               <td colspan="1">#</td>
-                              <td colspan="2">First Name</td>
-                              <td colspan="2">Last Name</td>
+                              <td colspan="2">Project Name</td>
                               <td colspan="5">Region</td>
                           </tr>
                           <tr>
                               <td colspan="1">1</td>
-                              <td colspan="2">ABC</td>
-                              <td colspan="2">XYZ</td>
+                              <td colspan="2">Analyzer</td>
                               <td colspan="5">Asia</td>
                           </tr>
                       </table>
@@ -337,30 +315,85 @@
                   </div>
               </div>
           </div>
+          <!-- /.row -->
 
-          <div class="row" id="editProfile">edit profile</div>
+          <div class="row" id="developers">
+            <div class="col-lg-10">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-users fa-fw"></i> List of Developers
+                        <div class="pull-right">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.panel-heading -->
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.col-lg-12 -->
+            <div class="col-lg-10">
+                <div class="panel panel-default">
+                  <!-- Default panel contents -->
+                  <div class="panel-heading">Developers</div>
+
+                  <!-- Table -->
+                  <table class="table">
+                      <tr>
+                          <td colspan="1">#</td>
+                          <td colspan="2">First Name</td>
+                          <td colspan="2">Last Name</td>
+                          <td colspan="5">Region</td>
+                      </tr>
+                      <tr>
+                          <td colspan="1">1</td>
+                          <td colspan="2">ABC</td>
+                          <td colspan="2">XYZ</td>
+                          <td colspan="5">Asia</td>
+                      </tr>
+                  </table>
+
+              </div>
+          </div>
       </div>
-      <!-- /#page-wrapper -->
 
+      <div class="row" id="editProfile">
+          <ul class="list-group">
+              <li class="list-group-item">Cras justo odio</li>
+              <li class="list-group-item">Dapibus ac facilisis in</li>
+              <li class="list-group-item">Morbi leo risus</li>
+              <li class="list-group-item">Porta ac consectetur ac</li>
+              <li class="list-group-item">Vestibulum at eros</li>
+          </ul>
+      </div>
   </div>
-  <!-- /#wrapper -->
+  <!-- /#page-wrapper -->
 
-  <!-- jQuery -->
-  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+</div>
+<!-- /#wrapper -->
 
-  <!-- Bootstrap Core JavaScript -->
-  <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- jQuery -->
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
 
-  <!-- Metis Menu Plugin JavaScript -->
-  <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
-  <!-- Morris Charts JavaScript -->
-  <script src="../bower_components/raphael/raphael-min.js"></script>
-  <script src="../bower_components/morrisjs/morris.min.js"></script>
-  <script src="../js/morris-data.js"></script>
+<!-- Metis Menu Plugin JavaScript -->
+<script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
 
-  <!-- Custom Theme JavaScript -->
-  <script src="../dist/js/sb-admin-2.js"></script>
+<!-- Morris Charts JavaScript -->
+<script src="../bower_components/raphael/raphael-min.js"></script>
+<script src="../bower_components/morrisjs/morris.min.js"></script>
+<script src="../js/morris-data.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="../dist/js/sb-admin-2.js"></script>
 
 </body>
 
