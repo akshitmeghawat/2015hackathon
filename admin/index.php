@@ -128,30 +128,55 @@
                 <div class="col-lg-8">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Area Chart Example
-                            <div class="pull-right">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                        Actions
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a href="#">Action</a>
-                                        </li>
-                                        <li><a href="#">Another action</a>
-                                        </li>
-                                        <li><a href="#">Something else here</a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">Separated link</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Project Progress
+                           
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <div id="morris-area-chart"></div>
+                            <div id="morris-area-chart">
+                                 <ul class="" style="list-style-type: none;">
+ <?php
+    $res = mysql_query("select * from projects order by end_day desc");
+    while ($row = mysql_fetch_assoc($res))
+    {
+        $pr_id = $row["project_id"];
+        $end_day = date_create($row["end_day"]);
+        $start_day = date_create($row["start_day"]);
+        $diff = date_diff($end_day, $start_day);
+        $today = date_create(date("Y-m-d"));
+       $diff_cur = date_diff($today, $start_day);
+        $per = number_format(($diff_cur->days/$diff->days)*100, 0);
+        // echo $per;
+        $name = $row["name"];
+
+        echo '<li>
+                            <a href="project_details.php?id='.$pr_id.'">
+                                <div>
+                                    <p>
+                                        <strong>'.$name.'</strong>
+                                        <span class="pull-right text-muted">'.$per.'% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'.$per.'" aria-valuemin="0" aria-valuemax="100" style="width: '.$per.'%">
+                                            <span class="sr-only">'.$per.'% Complete (success)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+    <li class="divider"></li>';
+    }
+ ?>
+                        
+                    
+                        <li>
+                            <a class="text-center" href="project_lists.php">
+                                <strong>See All Projects</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                            </div>
                         </div>
                         <!-- /.panel-body -->
                     </div>
