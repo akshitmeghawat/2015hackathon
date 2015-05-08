@@ -14,8 +14,8 @@ include("header.php");
 
     <?php
     $list_of_pos = "select *
-    from po_list pos LEFT OUTER JOIN projects prs
-    on pos.po_id = prs.project_id
+    from po_list pos LEFT OUTER JOIN project_po_map prs
+    on pos.po_id = prs.po_id
     ";
     $po_result = mysql_query($list_of_pos); 
     $list_of_devs ="select *
