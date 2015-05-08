@@ -13,6 +13,20 @@ include("header.php");
     <div class="clearfix"></div>
 
     <?php
+    function valid_project($pr_id)
+    {
+      $res = mysql_query("select * from projects where project_id = '$pr_id' and end_day < curdate()");
+      if ($res)
+      {
+        $response = mysql_fetch_array($res);
+        if(count($response) > 1)
+          return true;
+      }
+      else 
+      {
+        return false;
+      }
+    }
     $list_of_pos = "select *
     from po_list pos LEFT OUTER JOIN project_po_map prs
     on pos.po_id = prs.po_id
@@ -21,8 +35,6 @@ include("header.php");
     $list_of_devs ="select *
     from developers devs LEFT OUTER JOIN developer_project_map map
     on devs.dev_id = map.dev_id
-
-
     "; 
     $dev_lists = mysql_query($list_of_devs);
     $query = "SELECT * from projects";
@@ -31,7 +43,8 @@ include("header.php");
     <datalist id="pos">
      <?php
      while ($row = mysql_fetch_array($po_result)) {
-      if(is_null($row["project_id"]))
+      
+      if(valid_project($row["project_id"]) )
       {
         echo "<option value='".$row['1']."'></option>";
       }
@@ -60,7 +73,7 @@ include("header.php");
               <td>
                 <?php
                 while ($row = mysql_fetch_array($dev_lists)) {
-                  if(is_null($row["project_id"]))
+                  if(valid_project($row["project_id"]) || is_null($row["project_id"]))
                   {
                     echo "<label><input type='checkbox' name=devs[] value='".$row['0']."'> <a href='#'>".$row['1']."</a> </label> ";
                   }
