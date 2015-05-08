@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 08, 2015 at 11:19 PM
+-- Generation Time: May 09, 2015 at 01:38 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.5.19
 
@@ -30,18 +30,19 @@ CREATE TABLE IF NOT EXISTS `developers` (
 `dev_id` int(11) NOT NULL,
   `name` varchar(20) NOT NULL,
   `github_profile` text NOT NULL,
-  `tech` text NOT NULL
+  `tech` text NOT NULL,
+  `region` text NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `developers`
 --
 
-INSERT INTO `developers` (`dev_id`, `name`, `github_profile`, `tech`) VALUES
-(1, 'Mahesh Haldar', 'http://githuben.intranet.mckinsey.com/mahesh-kumar-haldar', 'rails, java, html, css'),
-(2, 'Akshit Meghawat', 'http://githuben.intranet.mckinsey.com/akshit-meghawat', 'html, css, angularjs'),
-(3, 'Abhinav', 'abhinav.git', '.net, rails'),
-(4, 'Apurva', 'Apurva.git', 'angularjs, rails');
+INSERT INTO `developers` (`dev_id`, `name`, `github_profile`, `tech`, `region`) VALUES
+(1, 'Mahesh Haldar', 'http://githuben.intranet.mckinsey.com/mahesh-kumar-haldar', 'rails, java, html, css', 'ASIA'),
+(2, 'Akshit Meghawat', 'http://githuben.intranet.mckinsey.com/akshit-meghawat', 'html, css, angularjs', 'ASIA'),
+(3, 'Abhinav', 'abhinav.git', '.net, rails', ''),
+(4, 'Apurva', 'Apurva.git', 'angularjs, rails', '');
 
 -- --------------------------------------------------------
 

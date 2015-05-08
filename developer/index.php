@@ -72,34 +72,34 @@ $skills = explode(", ", $row_skills['tech']);
     <link href="../css/developer.css" rel="stylesheet">
 
     <script type="text/javascript">
-        function showMyProject(){
-          console.log("clicked1");
-          document.getElementById('myProject').style.display = "block";
-          document.getElementById('allCurrentProjects').style.display = "none";
-          document.getElementById('developers').style.display = "none";
-          document.getElementById('editProfile').style.display = "none";
-      };
-      function showAllProjects(){
-        console.log("clicked2");
-        document.getElementById('myProject').style.display = "none";
-        document.getElementById('allCurrentProjects').style.display = "inline-block";
-        document.getElementById('developers').style.display = "none";
-        document.getElementById('editProfile').style.display = "none";
-    };
-    function showDevelopers(){
-        console.log("clicked3");
-        document.getElementById('myProject').style.display = "none";
-        document.getElementById('allCurrentProjects').style.display = "none";
-        document.getElementById('developers').style.display = "inline-block";
-        document.getElementById('editProfile').style.display = "none";
-    };
-    function showSkillProfile(){
-        console.log("clicked4");
-        document.getElementById('myProject').style.display = "none";
-        document.getElementById('allCurrentProjects').style.display = "none";
-        document.getElementById('developers').style.display = "none";
-        document.getElementById('editProfile').style.display = "block";
-    };</script>
+    function showMyProject(){
+  console.log("clicked1");
+  document.getElementById('myProject').style.display = "block";
+  document.getElementById('allCurrentProjects').style.display = "none";
+  document.getElementById('developers').style.display = "none";
+  document.getElementById('editProfile').style.display = "none";
+};
+function showAllProjects(){
+  console.log("clicked2");
+  document.getElementById('myProject').style.display = "none";
+  document.getElementById('allCurrentProjects').style.display = "inline-block";
+  document.getElementById('developers').style.display = "none";
+  document.getElementById('editProfile').style.display = "none";
+};
+function showDevelopers(){
+  console.log("clicked3");
+  document.getElementById('myProject').style.display = "none";
+  document.getElementById('allCurrentProjects').style.display = "none";
+  document.getElementById('developers').style.display = "inline-block";
+  document.getElementById('editProfile').style.display = "none";
+};
+function showSkillProfile(){
+  console.log("clicked4");
+  document.getElementById('myProject').style.display = "none";
+  document.getElementById('allCurrentProjects').style.display = "none";
+  document.getElementById('developers').style.display = "none";
+  document.getElementById('editProfile').style.display = "block";
+};</script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -330,7 +330,7 @@ $skills = explode(", ", $row_skills['tech']);
                         <i class="fa fa-file-archive-o fa-fw"></i> Projects
                         <div class="pull-right">
                             <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search by Technology...">
+                                <form action="index.php"><input type="text" class="form-control" placeholder="Search by Technology..."></form>
                                 <span class="input-group-btn">
                                     <button class="btn btn-default" type="button">
                                         <i class="fa fa-search"></i>
@@ -343,14 +343,14 @@ $skills = explode(", ", $row_skills['tech']);
                     <!-- Table -->
                     <table class="table">
                       <tr class="first-row">
-                          <td colspan="1">ID</td>
+                          <td colspan="1"></td>
                           <td colspan="2">Project Name</td>
                           <td colspan="5">Description</td>
                       </tr>
                       <tr>
-                          <td colspan="1">1</td>
-                          <td colspan="2">Analyzer</td>
-                          <td colspan="5">Asia</td>
+                          <td colspan='1'></td>
+                          <td colspan='2'>Analyzer</td>
+                          <td colspan='5'>Asia</td>
                       </tr>
                   </table>
 
@@ -378,14 +378,14 @@ $skills = explode(", ", $row_skills['tech']);
                 <!-- Table -->
                 <table class="table">
                   <tr class="first-row">
-                      <td colspan="1">#</td>
+                      <td colspan="1"></td>
                       <td colspan="2">Name</td>
                       <td colspan="5">Region</td>
                   </tr>
                   <tr>
-                      <td colspan="1">1</td>
-                      <td colspan="2">ABC</td>
-                      <td colspan="5">Asia</td>
+                      <td colspan='1'></td>
+                      <td colspan='2'>ABC</td>
+                      <td colspan='5'>Asia</td>
                   </tr>
               </table>
 
