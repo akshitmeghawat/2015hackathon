@@ -27,10 +27,17 @@ include("header.php");
               <td>Developer Name</td>
               <td><input type="text" placeholder="Enter name of developer" class="form-control" name="developer_name"></td>
             </tr>
+
+            <tr>
+              <td>Github Profile</td>
+              <td><input type="text" placeholder="Enter your github profile" class="form-control" name="github_profile"></td>
+            </tr>
               <td colspan="2">
                 <input type="submit" name="sub" value="Add Developer" class="btn btn-success form-control">
               </td>
             </tr>
+
+
 
           </tbody>
         </table>
