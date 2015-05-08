@@ -50,7 +50,7 @@ include("header.php");
                 {
                   array_push($array, $row["0"]);
 
-      if(valid_project($row["project_id"]) )
+      if(valid_project($row["project_id"]) || is_null($row["project_id"]))
       {
         echo "<option value='".$row['1']."'></option>";
       }

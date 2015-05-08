@@ -31,6 +31,58 @@
                ?>
              </td>
            </tr>
+           <tr>
+             <td>
+              Start day  
+             </td>
+             <td>
+              <?php
+              echo $row["start_day"];
+              ?>
+             </td>
+           </tr>
+           <tr>
+             <td>
+              End day  
+             </td>
+             <td>
+              <?php
+              echo $row["end_day"];
+              ?>
+             </td>
+           </tr>
+           <tr>
+           <td>
+             PO
+           </td>
+          <td>
+            <?php
+              $po_id_from_map = mysql_fetch_array( mysql_query("SELECT po_id from project_po_map where project_id = '$project_id'"));
+              echo mysql_fetch_array(mysql_query("select name from po_list where po_id ='".$po_id_from_map['0']."'"))['0']
+            ?>
+          </td>
+           </tr>
+           <tr>
+           <td>
+            Developers
+           </td>
+            <td>
+              <?php
+                $res = mysql_query("select dev_id from developer_project_map");
+                $dev_id = array();
+                while ($row = mysql_fetch_assoc($res)) {
+                  $dev_id[] = $row["dev_id"];
+                }
+                $dev_id = implode(",", $dev_id);
+                $res2 = mysql_query("select name from developers where dev_id in ($dev_id)");
+                $dev_id2 = array();
+                while ($row = mysql_fetch_assoc($res2)) {
+                  $dev_id2[] = $row["name"];
+                }
+               echo implode(", ",$dev_id2);
+              ?>
+            </td>
+           </tr>
          </tbody>
        </table>
        </div>

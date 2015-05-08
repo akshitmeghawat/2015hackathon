@@ -13,7 +13,7 @@
        <div class="clearfix"></div>
 
        <?php
-       $query = "SELECT * from projects";
+       $query = "SELECT * from projects order by end_day desc";
        $result = mysql_query($query);
        ?>
     <div id="page-wrapper">

@@ -35,6 +35,31 @@ include("header.php");
           </tbody>
         </table>
       </form>
+      <hr>
+     <!--  <table class="table">
+        <caption>List of all POs</caption>
+        <thead>
+          <tr>
+            <th>count</th>
+            <th>name</th>
+          </tr>
+        </thead>
+        <tbody>
+        <?php
+          $query = "select * from po_list";
+          $res = mysql_fetch_assoc(mysql_query($query));
+          // print_r($res);
+          $name = array();
+          while ($row = mysql_fetch_assoc($res)) {
+            $name[] = $row["name"];
+          }
+          echo implode(", ", $name);
+        ?>
+          <tr>
+            <td>data</td>
+          </tr>
+        </tbody>
+      </table> -->
     </div>
   </div>
 </div>
