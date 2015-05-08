@@ -1,0 +1,16 @@
+.panel-heading .pull-right{
+  width: 30%;
+  margin-top: -7px;
+}
+#myProject{
+  visibility: hidden;
+}
+#allCurrentProjects{
+  visibility: hidden;
+}
+#developers{
+  visibility: hidden;
+}
+#editProfile{
+  visibility: hidden;
+}
