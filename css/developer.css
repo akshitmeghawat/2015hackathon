@@ -3,14 +3,14 @@
   margin-top: -7px;
 }
 #myProject{
-  visibility: hidden;
+  display: none;
 }
 #allCurrentProjects{
-  visibility: hidden;
+  display: none;
 }
 #developers{
-  visibility: hidden;
+  display: none;
 }
 #editProfile{
-  visibility: hidden;
+  display: none;
 }

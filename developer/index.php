@@ -32,34 +32,34 @@
     <link href="../css/developer.css" rel="stylesheet">
 
     <script type="text/javascript">
-    function showMyProject(){
-  console.log("clicked1");
-  document.getElementById('myProject').style.visibilty = "visible";
-  document.getElementById('allCurrentProjects').style.visibilty = "hidden";
-  document.getElementById('developers').style.visibilty = "hidden";
-  document.getElementById('editProfile').style.visibilty = "hidden";
-};
-function showAllProjects(){
-    console.log("clicked2");
-  document.getElementById('myProject').style.visibilty = "hidden";
-  document.getElementById('allCurrentProjects').style.visibilty = "visible";
-  document.getElementById('developers').style.visibilty = "hidden";
-  document.getElementById('editProfile').style.visibilty = "hidden";
-};
-function showDevelopers(){
-    console.log("clicked3");
-  document.getElementById('myProject').style.visibilty = "hidden";
-  document.getElementById('allCurrentProjects').style.visibilty = "hidden";
-  document.getElementById('developers').style.visibilty = "visible";
-  document.getElementById('editProfile').style.visibilty = "hidden";
-};
-function showSkillProfile(){
-    console.log("clicked4");
-  document.getElementById('myProject').style.visibilty = "hidden";
-  document.getElementById('allCurrentProjects').style.visibilty = "hidden";
-  document.getElementById('developers').style.visibilty = "hidden";
-  document.getElementById('editProfile').style.visibilty = "visible";
-};</script>
+        function showMyProject(){
+          console.log("clicked1");
+          document.getElementById('myProject').style.display = "inline-block";
+          document.getElementById('allCurrentProjects').style.display = "none";
+          document.getElementById('developers').style.display = "none";
+          document.getElementById('editProfile').style.display = "none";
+      };
+      function showAllProjects(){
+        console.log("clicked2");
+        document.getElementById('myProject').style.display = "none";
+        document.getElementById('allCurrentProjects').style.display = "inline-block";
+        document.getElementById('developers').style.display = "none";
+        document.getElementById('editProfile').style.display = "none";
+    };
+    function showDevelopers(){
+        console.log("clicked3");
+        document.getElementById('myProject').style.display = "none";
+        document.getElementById('allCurrentProjects').style.display = "none";
+        document.getElementById('developers').style.display = "inline-block";
+        document.getElementById('editProfile').style.display = "none";
+    };
+    function showSkillProfile(){
+        console.log("clicked4");
+        document.getElementById('myProject').style.display = "none";
+        document.getElementById('allCurrentProjects').style.display = "none";
+        document.getElementById('developers').style.display = "none";
+        document.getElementById('editProfile').style.display = "inline-block";
+    };</script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
