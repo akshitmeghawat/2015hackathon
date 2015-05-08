@@ -148,7 +148,10 @@
         $per = number_format(($diff_cur->days/$diff->days)*100, 0);
         // echo $per;
         $name = $row["name"];
-
+        if($per > 100)
+        {
+            $per = 100;
+        }
         echo '<li>
                             <a href="project_details.php?id='.$pr_id.'">
                                 <div>
@@ -165,6 +168,8 @@
                             </a>
                         </li>
     <li class="divider"></li>';
+
+
     }
  ?>
                         
