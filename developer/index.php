@@ -27,6 +27,8 @@ $row_po = mysql_fetch_array($result_po);
 
 $query_devs = "SELECT d.name FROM developers d WHERE d.dev_id IN (SELECT dev_id FROM developer_project_map WHERE project_id='$pid');";
 $result_devs = mysql_query($query_devs);
+
+// project based on technology
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -237,7 +239,7 @@ $result_devs = mysql_query($query_devs);
                                         <i class="fa fa-file-archive-o fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-center">
-                                        <div>View All Current Projects</div>
+                                        <div>View All Projects</div>
                                     </div>
                                 </div>
                             </div>
@@ -265,7 +267,7 @@ $result_devs = mysql_query($query_devs);
                                         <i class="fa fa-support fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-center">
-                                        <div>Skill Profile</div>
+                                        <div>Tech Skills</div>
                                     </div>
                                 </div>
                             </div>
@@ -318,7 +320,7 @@ $result_devs = mysql_query($query_devs);
                             <i class="fa fa-file-archive-o fa-fw"></i> Current Projects
                             <div class="pull-right">
                                 <div class="input-group custom-search-form">
-                                    <input type="text" class="form-control" placeholder="Search...">
+                                    <input type="text" class="form-control" placeholder="Search by Technology...">
                                     <span class="input-group-btn">
                                         <button class="btn btn-default" type="button">
                                             <i class="fa fa-search"></i>
@@ -340,9 +342,9 @@ $result_devs = mysql_query($query_devs);
                       <!-- Table -->
                       <table class="table">
                           <tr>
-                              <td colspan="1">#</td>
+                              <td colspan="1">ID</td>
                               <td colspan="2">Project Name</td>
-                              <td colspan="5">Region</td>
+                              <td colspan="5">Description</td>
                           </tr>
                           <tr>
                               <td colspan="1">1</td>
@@ -363,7 +365,7 @@ $result_devs = mysql_query($query_devs);
                         <i class="fa fa-users fa-fw"></i> List of Developers
                         <div class="pull-right">
                             <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search by Skill...">
+                                <input type="text" class="form-control" placeholder="Search by Technology...">
                                 <span class="input-group-btn">
                                     <button class="btn btn-default" type="button">
                                         <i class="fa fa-search"></i>

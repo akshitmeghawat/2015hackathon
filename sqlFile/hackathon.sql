@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 08, 2015 at 09:07 PM
+-- Generation Time: May 08, 2015 at 11:19 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.5.19
 
@@ -29,18 +29,19 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `developers` (
 `dev_id` int(11) NOT NULL,
   `name` varchar(20) NOT NULL,
-  `github_profile` text NOT NULL
+  `github_profile` text NOT NULL,
+  `tech` text NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `developers`
 --
 
-INSERT INTO `developers` (`dev_id`, `name`, `github_profile`) VALUES
-(1, 'Mahesh Haldar', 'http://githuben.intranet.mckinsey.com/mahesh-kumar-haldar'),
-(2, 'Akshit Meghawat', 'http://githuben.intranet.mckinsey.com/akshit-meghawat'),
-(3, 'Abhinav', 'abhinav.git'),
-(4, 'Apurva', 'Apurva.git');
+INSERT INTO `developers` (`dev_id`, `name`, `github_profile`, `tech`) VALUES
+(1, 'Mahesh Haldar', 'http://githuben.intranet.mckinsey.com/mahesh-kumar-haldar', 'rails, java, html, css'),
+(2, 'Akshit Meghawat', 'http://githuben.intranet.mckinsey.com/akshit-meghawat', 'html, css, angularjs'),
+(3, 'Abhinav', 'abhinav.git', '.net, rails'),
+(4, 'Apurva', 'Apurva.git', 'angularjs, rails');
 
 -- --------------------------------------------------------
 
@@ -121,24 +122,25 @@ CREATE TABLE IF NOT EXISTS `projects` (
   `name` varchar(50) NOT NULL,
   `start_day` date NOT NULL,
   `end_day` date NOT NULL,
-  `description` text NOT NULL
+  `description` text NOT NULL,
+  `tech` text NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `projects`
 --
 
-INSERT INTO `projects` (`project_id`, `name`, `start_day`, `end_day`, `description`) VALUES
-(1, 'Pharm M & A', '2015-05-06', '2015-05-01', 'this is sample project'),
-(2, 'LEG', '2015-05-07', '2015-05-01', 'sample'),
-(3, 'test', '2015-01-07', '2015-06-06', 'asdasd'),
-(6, 'masnd', '2015-02-02', '2016-02-02', 'asd'),
-(7, 'masnd', '2015-04-28', '2015-04-30', 'asd'),
-(8, 'asdas', '2015-04-29', '2015-05-21', 'asd'),
-(9, 'masnd', '2015-05-05', '2015-05-21', ''),
-(10, 'masnd', '2015-05-05', '2015-05-21', 'asd'),
-(11, 'masnd', '2015-04-27', '2015-05-14', 'asd'),
-(12, '', '2015-04-28', '2015-05-13', 'asd');
+INSERT INTO `projects` (`project_id`, `name`, `start_day`, `end_day`, `description`, `tech`) VALUES
+(1, 'Pharm M & A', '2015-05-06', '2015-05-01', 'this is sample project', 'rails, angularjs, html, css, ionic'),
+(2, 'LEG', '2015-05-07', '2015-05-01', 'sample', 'rails, angularjs, bootstrap'),
+(3, 'test', '2015-01-07', '2015-06-06', 'asdasd', 'ios, swift'),
+(6, 'masnd', '2015-02-02', '2016-02-02', 'asd', 'canvas, angularjs, html, css'),
+(7, 'masnd', '2015-04-28', '2015-04-30', 'asd', ''),
+(8, 'asdas', '2015-04-29', '2015-05-21', 'asd', ''),
+(9, 'masnd', '2015-05-05', '2015-05-21', '', ''),
+(10, 'masnd', '2015-05-05', '2015-05-21', 'asd', ''),
+(11, 'masnd', '2015-04-27', '2015-05-14', 'asd', ''),
+(12, '', '2015-04-28', '2015-05-13', 'asd', '');
 
 -- --------------------------------------------------------
 
