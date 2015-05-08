@@ -9,8 +9,20 @@
         <!-- Navigation -->
        <?php
         include 'side_and_menu.php';
+        $ab = 12;
        ?>
 
+       <?php
+        include 'connection.php';
+        function number_of_projects()
+        {
+        $res = mysql_query("select * from projects");
+    
+        $response = mysql_num_rows($res);
+        //print_r($res);
+        return $response;
+        }
+        ?>
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
@@ -28,7 +40,7 @@
                                     <i class="fa fa-arrow-circle-right fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">26</div>
+                                    <div class="huge"><?php echo number_of_projects() ?></div>
                                     <div>Projects going on</div>
                                 </div>
                             </div>
