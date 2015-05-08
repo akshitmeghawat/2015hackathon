@@ -1,3 +1,33 @@
+<?php
+include '../connection.php';
+// Fixed dev-id for now
+$dev = 1;
+
+// Find developer's name
+$query_name = "SELECT name FROM developers WHERE dev_id='$dev';";
+$result_name = mysql_query($query_name);
+$row_name = mysql_fetch_array($result_name);
+
+// Project Details which he is working in
+$query_pid =
+"SELECT p.project_id 
+FROM developer_project_map d,projects p 
+WHERE d.dev_id='$dev' AND p.project_id=d.project_id AND p.end_day>curdate();";
+$result_pid = mysql_query($query_pid);
+$row_pid = mysql_fetch_array($result_pid);
+$pid = $row_pid['project_id'];
+
+$query_project_detail = "SELECT * FROM projects WHERE project_id='$pid';";
+$result_project_detail = mysql_query($query_project_detail);
+$row_project_detail = mysql_fetch_array($result_project_detail);
+
+$query_po = "SELECT name FROM po_list WHERE po_id=(SELECT po_id FROM project_po_map WHERE project_id='$pid');";
+$result_po = mysql_query($query_po);
+$row_po = mysql_fetch_array($result_po);
+
+$query_devs = "SELECT d.name FROM developers d WHERE d.dev_id IN (SELECT dev_id FROM developer_project_map WHERE project_id='$pid');";
+$result_devs = mysql_query($query_devs);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -58,7 +88,7 @@
         document.getElementById('myProject').style.display = "none";
         document.getElementById('allCurrentProjects').style.display = "none";
         document.getElementById('developers').style.display = "none";
-        document.getElementById('editProfile').style.display = "inline-block";
+        document.getElementById('editProfile').style.display = "block";
     };</script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -179,7 +209,7 @@
             <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Welcome Developer</h1>
+                        <h1 class="page-header">Welcome <?php echo $row_name['name'];?></h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -235,7 +265,7 @@
                                         <i class="fa fa-support fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-center">
-                                        <div>Edit Skill Profile</div>
+                                        <div>Skill Profile</div>
                                     </div>
                                 </div>
                             </div>
@@ -248,25 +278,34 @@
                     <div class="col-lg-10">
                         <div class="panel panel-default">
                           <!-- Default panel contents -->
-                          <div class="panel-heading">Project Title</div>
+                          <div class="panel-heading"><?php echo $row_project_detail['name'];?></div>
                           <div class="panel-body">
-                            <p>Description: </p>
+                            <p>Description: <?php echo $row_project_detail['description'];?></p>
                         </div>
                     </div>
 
                     <!-- List group -->
                     <ul class="list-group">
-                        <li class="list-group-item">ID: </li>
-                        <li class="list-group-item">Product Owner: </li>
+                        <li class="list-group-item">ID: <?php echo $pid;?></li>
+                        <li class="list-group-item">Product Owner: <?php echo $row_po['name'];?></li>
                         <li class="list-group-item">
                             <div class="row">
                                 <div class="col-sm-2">Start date:</div>
-                                <div class="col-sm-2">21-2-15</div>
+                                <div class="col-sm-2"><?php echo $row_project_detail['start_day'];?></div>
                                 <div class="col-sm-2 col-sm-offset-2">End date:</div>
-                                <div class="col-sm-2">31-12-15</div>
+                                <div class="col-sm-2"><?php echo $row_project_detail['end_day'];?></div>
                             </div>
                         </li>
-                        <li class="list-group-item">Developers: abc,xyz</li>
+                        <li class="list-group-item">
+                            Developers: 
+                            <?php
+                            $row_devs = mysql_fetch_array($result_devs);
+                            echo $row_devs['name'];
+                            while ($row_devs = mysql_fetch_array($result_devs)) {
+                                echo ", ".$row_devs['name'];
+                            }
+                            ?>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -324,7 +363,7 @@
                         <i class="fa fa-users fa-fw"></i> List of Developers
                         <div class="pull-right">
                             <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
+                                <input type="text" class="form-control" placeholder="Search by Skill...">
                                 <span class="input-group-btn">
                                     <button class="btn btn-default" type="button">
                                         <i class="fa fa-search"></i>
@@ -364,13 +403,13 @@
       </div>
 
       <div class="row" id="editProfile">
-          <ul class="list-group">
-              <li class="list-group-item">Cras justo odio</li>
-              <li class="list-group-item">Dapibus ac facilisis in</li>
-              <li class="list-group-item">Morbi leo risus</li>
-              <li class="list-group-item">Porta ac consectetur ac</li>
-              <li class="list-group-item">Vestibulum at eros</li>
-          </ul>
+          <div class="col-lg-10">
+              <ul class="list-group">
+              <li class="list-group-item">Java</li>
+                  <li class="list-group-item">Ruby</li>
+                  <li class="list-group-item">Front-end</li>
+              </ul>
+          </div>
       </div>
   </div>
   <!-- /#page-wrapper -->
