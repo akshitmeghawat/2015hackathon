@@ -30,11 +30,13 @@ include("header.php");
     $list_of_pos = "select *
     from po_list pos LEFT OUTER JOIN project_po_map prs
     on pos.po_id = prs.po_id
+    order by prs.project_id desc
     ";
     $po_result = mysql_query($list_of_pos); 
     $list_of_devs ="select *
     from developers devs LEFT OUTER JOIN developer_project_map map
     on devs.dev_id = map.dev_id
+    order by map.project_id desc
     "; 
     $dev_lists = mysql_query($list_of_devs);
     $query = "SELECT * from projects";
@@ -42,12 +44,17 @@ include("header.php");
     ?>
     <datalist id="pos">
      <?php
+     $array = array();
      while ($row = mysql_fetch_array($po_result)) {
-      
+       if (!in_array($row["0"], $array))
+                {
+                  array_push($array, $row["0"]);
+
       if(valid_project($row["project_id"]) )
       {
         echo "<option value='".$row['1']."'></option>";
       }
+    }
 
     }
     ?>
@@ -62,21 +69,26 @@ include("header.php");
           <tbody>
             <tr>
               <td>Project Name</td>
-              <td><input type="text" placeholder="Enter name of the project" class="form-control" name="project_name"></td>
+              <td><input type="text" placeholder="Enter name of the project" class="form-control" name="project_name" autocomplete="off"></td>
             </tr>
             <tr>
               <td>PO of project</td>
-              <td><input type="text" placeholder="Unstaffed POs" list = "pos" class="form-control" name="po_name"></td>
+              <td><input type="text" placeholder="Unstaffed POs" list = "pos" class="form-control" name="po_name" autocomplete="off"></td>
             </tr>
             <tr>
               <td>Developers</td>
               <td>
                 <?php
+                $array = array();
                 while ($row = mysql_fetch_array($dev_lists)) {
+                  if (!in_array($row["0"], $array))
+                {
+                  array_push($array, $row["0"]);
                   if(valid_project($row["project_id"]) || is_null($row["project_id"]))
                   {
                     echo "<label><input type='checkbox' name=devs[] value='".$row['0']."'> <a href='#'>".$row['1']."</a> </label> ";
                   }
+                }
 
                 }
                 ?>
