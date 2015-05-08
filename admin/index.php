@@ -66,6 +66,7 @@
                         </a>
                     </div>
                 </div>
+
                 <div class="col-lg-3 col-md-6">
                     <div class="panel panel-green">
                         <div class="panel-heading">
@@ -88,6 +89,7 @@
                         </a>
                     </div>
                 </div>
+
                 <div class="col-lg-3 col-md-6">
                     <div class="panel panel-yellow">
                         <div class="panel-heading">
@@ -100,7 +102,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="new_project.php">
+                        <a href="new_dev.php">
                             <div class="panel-footer">
                                 <span class="pull-left">Add now</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
