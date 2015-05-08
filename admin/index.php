@@ -13,7 +13,6 @@
        ?>
 
        <?php
-        include 'connection.php';
         function number_of_projects()
         {
         $res = mysql_query("select * from projects where end_day > curdate()");
