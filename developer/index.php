@@ -29,6 +29,14 @@ $query_devs = "SELECT d.name FROM developers d WHERE d.dev_id IN (SELECT dev_id 
 $result_devs = mysql_query($query_devs);
 
 // project based on technology
+
+// developers based on technology
+
+// skills of an developer
+$query_skills = "SELECT tech FROM developers WHERE dev_id='$dev';";
+$result_skills = mysql_query($query_skills);
+$row_skills = mysql_fetch_array($result_skills);
+$skills = explode(", ", $row_skills['tech']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -314,55 +322,12 @@ $result_devs = mysql_query($query_devs);
 
 
             <div class="row" id="allCurrentProjects">
-                <div class="col-lg-10">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-file-archive-o fa-fw"></i> Current Projects
-                            <div class="pull-right">
-                                <div class="input-group custom-search-form">
-                                    <input type="text" class="form-control" placeholder="Search by Technology...">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.panel-heading -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
                 <!-- /.col-lg-12 -->
                 <div class="col-lg-10">
                     <div class="panel panel-default">
                       <!-- Default panel contents -->
-                      <div class="panel-heading">Projects</div>
-
-                      <!-- Table -->
-                      <table class="table">
-                          <tr>
-                              <td colspan="1">ID</td>
-                              <td colspan="2">Project Name</td>
-                              <td colspan="5">Description</td>
-                          </tr>
-                          <tr>
-                              <td colspan="1">1</td>
-                              <td colspan="2">Analyzer</td>
-                              <td colspan="5">Asia</td>
-                          </tr>
-                      </table>
-
-                  </div>
-              </div>
-          </div>
-          <!-- /.row -->
-
-          <div class="row" id="developers">
-            <div class="col-lg-10">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <i class="fa fa-users fa-fw"></i> List of Developers
+                      <div class="panel-heading">
+                        <i class="fa fa-file-archive-o fa-fw"></i> Projects
                         <div class="pull-right">
                             <div class="input-group custom-search-form">
                                 <input type="text" class="form-control" placeholder="Search by Technology...">
@@ -374,28 +339,17 @@ $result_devs = mysql_query($query_devs);
                             </div>
                         </div>
                     </div>
-                    <!-- /.panel-heading -->
-                </div>
-                <!-- /.panel -->
-            </div>
-            <!-- /.col-lg-12 -->
-            <div class="col-lg-10">
-                <div class="panel panel-default">
-                  <!-- Default panel contents -->
-                  <div class="panel-heading">Developers</div>
 
-                  <!-- Table -->
-                  <table class="table">
-                      <tr>
-                          <td colspan="1">#</td>
-                          <td colspan="2">First Name</td>
-                          <td colspan="2">Last Name</td>
-                          <td colspan="5">Region</td>
+                    <!-- Table -->
+                    <table class="table">
+                      <tr class="first-row">
+                          <td colspan="1">ID</td>
+                          <td colspan="2">Project Name</td>
+                          <td colspan="5">Description</td>
                       </tr>
                       <tr>
                           <td colspan="1">1</td>
-                          <td colspan="2">ABC</td>
-                          <td colspan="2">XYZ</td>
+                          <td colspan="2">Analyzer</td>
                           <td colspan="5">Asia</td>
                       </tr>
                   </table>
@@ -403,18 +357,55 @@ $result_devs = mysql_query($query_devs);
               </div>
           </div>
       </div>
+      <!-- /.row -->
 
-      <div class="row" id="editProfile">
-          <div class="col-lg-10">
-              <ul class="list-group">
-              <li class="list-group-item">Java</li>
-                  <li class="list-group-item">Ruby</li>
-                  <li class="list-group-item">Front-end</li>
-              </ul>
+      <div class="row" id="developers">
+        <div class="col-lg-10">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-users fa-fw"></i> List of Developers
+                    <div class="pull-right">
+                        <div class="input-group custom-search-form">
+                            <input type="text" class="form-control" placeholder="Search by Technology...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Table -->
+                <table class="table">
+                  <tr class="first-row">
+                      <td colspan="1">#</td>
+                      <td colspan="2">Name</td>
+                      <td colspan="5">Region</td>
+                  </tr>
+                  <tr>
+                      <td colspan="1">1</td>
+                      <td colspan="2">ABC</td>
+                      <td colspan="5">Asia</td>
+                  </tr>
+              </table>
+
           </div>
       </div>
   </div>
-  <!-- /#page-wrapper -->
+
+  <div class="row" id="editProfile">
+      <div class="col-lg-10">
+          <ul class="list-group">
+          <?php
+          foreach ($skills as $key => $value) {
+              echo "<li class='list-group-item'>".$value."</li>";
+          }
+          ?>
+          </ul>
+      </div>
+  </div>
+</div>
+<!-- /#page-wrapper -->
 
 </div>
 <!-- /#wrapper -->
