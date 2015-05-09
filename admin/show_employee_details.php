@@ -36,7 +36,7 @@
                 $count = 1;
                 while ($row = mysql_fetch_array($result)) {
                   echo "<tr>
-                  <td>".$row['name']."</td>
+                  <td><a href='project_details.php?id=".$row["project_id"]."'>".$row['name']."</a></td>
                   <td>".$row['description']."</td>
                   <td>".$row['start_day']."</td>
                   <td>".$row['end_day']."</td>

@@ -43,7 +43,26 @@ include("header.php");
         </table>
       </form>
     </div>
+    <table class="table">
+    <tr>
+    <td>Sl.</td>
+    <td>Name</td>
+    <td>Github</td>
+    </tr>
+    <?php
+    $quer = "select * from developers";
+    $res = mysql_query($quer);
+    $count = 1;
+      while ($row = mysql_fetch_assoc($res))
+{      echo "<tr>
+          <td>".$count++."</td>
+          <td><a href='show_employee_details.php?id=".$row["dev_id"]."'>".$row["name"]."</a></td>
+          <td>".$row["github_profile"]."</td>
+        </tr>";
+    }    ?>
+  </table>
   </div>
+
 </div>
 <?php
 include 'jquery_files.php';
