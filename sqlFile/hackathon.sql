@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 09, 2015 at 04:08 AM
+-- Generation Time: May 09, 2015 at 05:04 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.5.19
 
@@ -31,17 +31,24 @@ CREATE TABLE IF NOT EXISTS `developers` (
   `name` varchar(20) NOT NULL,
   `github_profile` text NOT NULL,
   `tech` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `developers`
 --
 
 INSERT INTO `developers` (`dev_id`, `name`, `github_profile`, `tech`) VALUES
-(1, 'Mahesh Haldar', 'http://githuben.intranet.mckinsey.com/mahesh-kumar-haldar', 'rails, java, html, css'),
-(2, 'Akshit Meghawat', 'http://githuben.intranet.mckinsey.com/akshit-meghawat', 'html, css, angularjs'),
-(3, 'Abhinav', 'abhinav.git', '.net, rails'),
-(4, 'Apurva', 'Apurva.git', 'angularjs, rails');
+(5, 'Aditi Joshi', 'https://github.com/Aditi', ''),
+(6, 'Mahesh Kumar', 'https://github.com/mahesh', ''),
+(7, 'Akshit Meghawat', 'https://github.com/akshit', ''),
+(8, 'Apurva Jain', 'https://github.com/apurva', ''),
+(9, 'Kakul Gupta', 'https://github.com/kakul', ''),
+(10, 'Abhimanyu Arya', 'https://github.com/abhimanyu', ''),
+(11, 'Niket Jain', 'https://github.com/niket', ''),
+(12, 'Atul ', 'https://github.com/atul', ''),
+(13, 'Mayanka', 'https://github.com/mayanka', ''),
+(14, 'Meenakshi', 'https://github.com/meenakshi', ''),
+(15, 'Vineetha', 'https://github.com/vineetha', '');
 
 -- --------------------------------------------------------
 
@@ -54,20 +61,19 @@ CREATE TABLE IF NOT EXISTS `developer_project_map` (
   `dev_id` int(11) NOT NULL,
   `project_id` int(11) NOT NULL,
   `tech` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `developer_project_map`
 --
 
 INSERT INTO `developer_project_map` (`id`, `dev_id`, `project_id`, `tech`) VALUES
-(1, 1, 1, 'Rails,Java'),
-(2, 2, 1, ''),
-(3, 3, 6, ''),
-(4, 4, 7, ''),
-(7, 1, 10, 'Rails,Java'),
-(8, 1, 11, 'Rails,Java'),
-(9, 1, 12, 'Rails,Java');
+(10, 9, 13, 'null'),
+(11, 7, 14, 'null'),
+(12, 6, 15, 'null'),
+(13, 5, 16, 'null'),
+(14, 11, 16, 'null'),
+(15, 15, 17, 'null');
 
 -- --------------------------------------------------------
 
@@ -80,15 +86,15 @@ CREATE TABLE IF NOT EXISTS `login` (
   `login` varchar(20) NOT NULL,
   `password` varchar(20) NOT NULL,
   `type` varchar(20) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `login`
 --
 
 INSERT INTO `login` (`id`, `login`, `password`, `type`) VALUES
-(1, 'shweta', 'admin', 'admin'),
-(2, 'mahesh', 'mahesh', 'dev');
+(3, 'admin', 'password', 'admin'),
+(4, 'developer', 'developer', 'developer');
 
 -- --------------------------------------------------------
 
@@ -99,18 +105,20 @@ INSERT INTO `login` (`id`, `login`, `password`, `type`) VALUES
 CREATE TABLE IF NOT EXISTS `po_list` (
 `po_id` int(11) NOT NULL,
   `name` varchar(30) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `po_list`
 --
 
 INSERT INTO `po_list` (`po_id`, `name`) VALUES
-(1, 'Mukul'),
-(2, 'VIshnu'),
-(3, 'samarth'),
-(4, 'Rohit'),
-(5, 'Sam');
+(6, 'Mukul'),
+(7, 'Aditi'),
+(8, 'Aditya'),
+(9, 'Manav'),
+(10, 'Swati'),
+(11, 'Krutika'),
+(12, 'Rakshit');
 
 -- --------------------------------------------------------
 
@@ -125,23 +133,18 @@ CREATE TABLE IF NOT EXISTS `projects` (
   `end_day` date NOT NULL,
   `description` text NOT NULL,
   `tech` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `projects`
 --
 
 INSERT INTO `projects` (`project_id`, `name`, `start_day`, `end_day`, `description`, `tech`) VALUES
-(1, 'Pharm M & A', '2015-05-06', '2015-05-01', 'this is sample project', 'rails, angularjs, html, css, ionic'),
-(2, 'LEG', '2015-05-07', '2015-05-01', 'sample', 'rails, angularjs, bootstrap'),
-(3, 'test', '2015-01-07', '2015-06-06', 'asdasd', 'ios, swift'),
-(6, 'project6', '2015-02-02', '2016-02-02', 'asd', 'canvas, angularjs, html, css'),
-(7, 'project7', '2015-04-28', '2015-04-30', 'asd', ''),
-(8, 'asdas', '2015-04-29', '2015-05-21', 'asd', ''),
-(9, 'project 9', '2015-05-05', '2015-05-21', '', ''),
-(10, 'project10', '2015-05-05', '2015-05-21', 'asd', ''),
-(11, 'project11', '2015-04-27', '2015-05-14', 'asd', ''),
-(12, 'project12', '2015-04-28', '2015-05-13', 'asd', '');
+(13, 'MB RMA', '2015-04-29', '2015-05-15', 'sample description', 'null'),
+(14, 'Insurance Analyser', '2015-04-24', '2015-05-28', 'lorem ipsum', 'null'),
+(15, 'Pharma', '2015-05-05', '2015-05-11', 'lorem ipsum', 'null'),
+(16, 'ABC Insurance', '2015-05-05', '2015-05-10', 'lorem ipsum', 'null'),
+(17, 'Project Checklist', '2015-05-01', '2015-05-05', 'lorem ipsum', 'null');
 
 -- --------------------------------------------------------
 
@@ -153,19 +156,18 @@ CREATE TABLE IF NOT EXISTS `project_po_map` (
 `id` int(11) NOT NULL,
   `po_id` int(11) NOT NULL,
   `project_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `project_po_map`
 --
 
 INSERT INTO `project_po_map` (`id`, `po_id`, `project_id`) VALUES
-(1, 1, 1),
-(2, 2, 2),
-(3, 3, 6),
-(4, 5, 7),
-(8, 1, 11),
-(9, 1, 12);
+(14, 6, 13),
+(15, 12, 14),
+(16, 8, 15),
+(17, 10, 16),
+(18, 11, 17);
 
 -- --------------------------------------------------------
 
@@ -240,32 +242,32 @@ ALTER TABLE `tech_skills`
 -- AUTO_INCREMENT for table `developers`
 --
 ALTER TABLE `developers`
-MODIFY `dev_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+MODIFY `dev_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `developer_project_map`
 --
 ALTER TABLE `developer_project_map`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `po_list`
 --
 ALTER TABLE `po_list`
-MODIFY `po_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `po_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
-MODIFY `project_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+MODIFY `project_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `project_po_map`
 --
 ALTER TABLE `project_po_map`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `tech_skills`
 --

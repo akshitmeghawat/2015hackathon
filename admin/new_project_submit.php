@@ -7,8 +7,9 @@
   $end_day = $_POST['end_day'];
   $desc = $_POST['desc'];
 
-  $insert_proj = "INSERT INTO projects Values ('null', '$project_name', '$start_day', '$end_day', '$desc')";
-  
+  $insert_proj = "INSERT INTO projects Values ('null', '$project_name', '$start_day', '$end_day', '$desc','null')";
+
+  echo $insert_proj;
   $res = mysql_query($insert_proj);
   $p_id = mysql_insert_id();
   if($res)
@@ -16,7 +17,7 @@
     echo "Aaaa";
     for ($i=0; $i < count($devs); $i++) { 
       $dev_id = $devs[$i];
-      $insert_dev = "INSERT INTO developer_project_map values('null', '$dev_id', '$p_id')";
+      $insert_dev = "INSERT INTO developer_project_map values('null', '$dev_id', '$p_id','null')";
       $r = mysql_query($insert_dev);
     }
     echo "Aaaa12";
@@ -40,9 +41,12 @@
       echo mysql_error();
     }
     echo $insert_po;
+    echo "<script>alert('project created');</script>";
+    header("location:index.php");
   }
   else
   {
     echo "soem";
+    echo mysql_error();
   }
 ?>
