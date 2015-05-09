@@ -37,7 +37,7 @@
                 while ($row = mysql_fetch_array($result)) {
                   echo "<tr>
                   <td>".$row['name']."</td>
-                  <td><a href='project_details.php?id=".$row['name']."'>".$row['description']."</a></td>
+                  <td>".$row['description']."</td>
                   <td>".$row['start_day']."</td>
                   <td>".$row['end_day']."</td>
                 </tr>";
@@ -65,7 +65,7 @@
                   
                   echo "<tr>
                   <td>".$count++."</td>
-                  <td><a href='project_details.php?id=".$row['tech']."'>".$individual_skill[$i]."</a></td>
+                  <td>".$individual_skill[$i]."</td>
                 </tr>";
                 }
                 ?>
