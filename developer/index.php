@@ -29,6 +29,14 @@ $query_devs = "SELECT d.name FROM developers d WHERE d.dev_id IN (SELECT dev_id 
 $result_devs = mysql_query($query_devs);
 
 // project based on technology
+
+// developers based on technology
+
+// skills of an developer
+$query_skills = "SELECT tech FROM developers WHERE dev_id='$dev';";
+$result_skills = mysql_query($query_skills);
+$row_skills = mysql_fetch_array($result_skills);
+$skills = explode(", ", $row_skills['tech']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,34 +72,34 @@ $result_devs = mysql_query($query_devs);
     <link href="../css/developer.css" rel="stylesheet">
 
     <script type="text/javascript">
-        function showMyProject(){
-          console.log("clicked1");
-          document.getElementById('myProject').style.display = "block";
-          document.getElementById('allCurrentProjects').style.display = "none";
-          document.getElementById('developers').style.display = "none";
-          document.getElementById('editProfile').style.display = "none";
-      };
-      function showAllProjects(){
-        console.log("clicked2");
-        document.getElementById('myProject').style.display = "none";
-        document.getElementById('allCurrentProjects').style.display = "inline-block";
-        document.getElementById('developers').style.display = "none";
-        document.getElementById('editProfile').style.display = "none";
-    };
-    function showDevelopers(){
-        console.log("clicked3");
-        document.getElementById('myProject').style.display = "none";
-        document.getElementById('allCurrentProjects').style.display = "none";
-        document.getElementById('developers').style.display = "inline-block";
-        document.getElementById('editProfile').style.display = "none";
-    };
-    function showSkillProfile(){
-        console.log("clicked4");
-        document.getElementById('myProject').style.display = "none";
-        document.getElementById('allCurrentProjects').style.display = "none";
-        document.getElementById('developers').style.display = "none";
-        document.getElementById('editProfile').style.display = "block";
-    };</script>
+    function showMyProject(){
+  console.log("clicked1");
+  document.getElementById('myProject').style.display = "block";
+  document.getElementById('allCurrentProjects').style.display = "none";
+  document.getElementById('developers').style.display = "none";
+  document.getElementById('editProfile').style.display = "none";
+};
+function showAllProjects(){
+  console.log("clicked2");
+  document.getElementById('myProject').style.display = "none";
+  document.getElementById('allCurrentProjects').style.display = "inline-block";
+  document.getElementById('developers').style.display = "none";
+  document.getElementById('editProfile').style.display = "none";
+};
+function showDevelopers(){
+  console.log("clicked3");
+  document.getElementById('myProject').style.display = "none";
+  document.getElementById('allCurrentProjects').style.display = "none";
+  document.getElementById('developers').style.display = "inline-block";
+  document.getElementById('editProfile').style.display = "none";
+};
+function showSkillProfile(){
+  console.log("clicked4");
+  document.getElementById('myProject').style.display = "none";
+  document.getElementById('allCurrentProjects').style.display = "none";
+  document.getElementById('developers').style.display = "none";
+  document.getElementById('editProfile').style.display = "block";
+};</script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -314,107 +322,72 @@ $result_devs = mysql_query($query_devs);
 
 
             <div class="row" id="allCurrentProjects">
-                <div class="col-lg-10">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-file-archive-o fa-fw"></i> Current Projects
-                            <div class="pull-right">
-                                <div class="input-group custom-search-form">
-                                    <input type="text" class="form-control" placeholder="Search by Technology...">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.panel-heading -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
                 <!-- /.col-lg-12 -->
                 <div class="col-lg-10">
                     <div class="panel panel-default">
                       <!-- Default panel contents -->
-                      <div class="panel-heading">Projects</div>
-
-                      <!-- Table -->
-                      <table class="table">
-                          <tr>
-                              <td colspan="1">ID</td>
-                              <td colspan="2">Project Name</td>
-                              <td colspan="5">Description</td>
-                          </tr>
-                          <tr>
-                              <td colspan="1">1</td>
-                              <td colspan="2">Analyzer</td>
-                              <td colspan="5">Asia</td>
-                          </tr>
-                      </table>
-
-                  </div>
-              </div>
-          </div>
-          <!-- /.row -->
-
-          <div class="row" id="developers">
-            <div class="col-lg-10">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <i class="fa fa-users fa-fw"></i> List of Developers
+                      <div class="panel-heading">
+                        <i class="fa fa-file-archive-o fa-fw"></i> Projects
                         <div class="pull-right">
                             <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search by Technology...">
+                                <input type="text" class="form-control" id="project_search" placeholder="Search by Technology..."></form>
                                 <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">
+                                    <button class="btn btn-default" id="project_button" type="button">
                                         <i class="fa fa-search"></i>
                                     </button>
                                 </span>
                             </div>
                         </div>
                     </div>
-                    <!-- /.panel-heading -->
-                </div>
-                <!-- /.panel -->
-            </div>
-            <!-- /.col-lg-12 -->
-            <div class="col-lg-10">
-                <div class="panel panel-default">
-                  <!-- Default panel contents -->
-                  <div class="panel-heading">Developers</div>
 
-                  <!-- Table -->
-                  <table class="table">
-                      <tr>
-                          <td colspan="1">#</td>
-                          <td colspan="2">First Name</td>
-                          <td colspan="2">Last Name</td>
-                          <td colspan="5">Region</td>
-                      </tr>
-                      <tr>
-                          <td colspan="1">1</td>
-                          <td colspan="2">ABC</td>
-                          <td colspan="2">XYZ</td>
-                          <td colspan="5">Asia</td>
-                      </tr>
+                    <!-- Table -->
+                    <table class="table" id="response_project" >
+                     
                   </table>
 
               </div>
           </div>
       </div>
+      <!-- /.row -->
 
-      <div class="row" id="editProfile">
-          <div class="col-lg-10">
-              <ul class="list-group">
-              <li class="list-group-item">Java</li>
-                  <li class="list-group-item">Ruby</li>
-                  <li class="list-group-item">Front-end</li>
-              </ul>
+      <div class="row" id="developers">
+        <div class="col-lg-10">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-users fa-fw"></i> List of Developers
+                    <div class="pull-right">
+                        <div class="input-group custom-search-form">
+                            <input type="text" class="form-control" id="skill_search" placeholder="Search by Technology...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" id="skill_button" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Table -->
+                <table class="table" id="response_dev">
+                  
+              </table>
+
           </div>
       </div>
   </div>
-  <!-- /#page-wrapper -->
+
+  <div class="row" id="editProfile">
+      <div class="col-lg-10">
+          <ul class="list-group">
+          <?php
+          foreach ($skills as $key => $value) {
+              echo "<li class='list-group-item'>".$value."</li>";
+          }
+          ?>
+          </ul>
+      </div>
+  </div>
+</div>
+<!-- /#page-wrapper -->
 
 </div>
 <!-- /#wrapper -->
@@ -435,7 +408,35 @@ $result_devs = mysql_query($query_devs);
 
 <!-- Custom Theme JavaScript -->
 <script src="../dist/js/sb-admin-2.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#project_button").click(function(){
+            var pr_term = $("#project_search").val();
+            if(pr_term.length < 1)
+            {
+                alert("Please enter something");
+            }
+            else{
+                $.ajax({url: "project_by_tech.php?skill="+pr_term, success: function(result){
+                 $("#response_project").html(result);
+    }});
+            }
+        });
 
+        $("#skill_button").click(function(){
+            var pr_term = $("#skill_search").val();
+            if(pr_term.length < 1)
+            {
+                alert("Please enter something");
+            }
+            else{
+                $.ajax({url: "dev_by_skill.php?skill="+pr_term, success: function(result){
+                 $("#response_dev").html(result);
+    }});
+            }
+        });
+    });
+</script>
 </body>
 
 </html>

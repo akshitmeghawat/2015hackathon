@@ -68,7 +68,7 @@ s<?php
            </td>
             <td>
               <?php
-                $res = mysql_query("select dev_id from developer_project_map");
+                $res = mysql_query("select dev_id from developer_project_map where project_id='".$project_id."'");
                 $dev_id = array();
                 while ($row = mysql_fetch_assoc($res)) {
                   $dev_id[] = $row["dev_id"];

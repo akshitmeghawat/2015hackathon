@@ -5,7 +5,7 @@
             <!-- /.navbar-top-links -->
 
             <?php
-            include("side_menu.php");
+            // include("side_menu.php");
             ?>
             <!-- /.navbar-static-side -->
         </nav>
