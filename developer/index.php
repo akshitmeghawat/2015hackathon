@@ -29,10 +29,6 @@ $row_po = mysql_fetch_array($result_po);
 $query_devs = "SELECT d.name FROM developers d WHERE d.dev_id IN (SELECT dev_id FROM developer_project_map WHERE project_id='$pid');";
 $result_devs = mysql_query($query_devs);
 
-// project based on technology
-
-// developers based on technology
-
 // skills of an developer
 $query_skills = "SELECT tech FROM developers WHERE dev_id='$dev';";
 $result_skills = mysql_query($query_skills);
@@ -202,7 +198,7 @@ function showSkillProfile(){
                             <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                             </li>
                             <li class="divider"></li>
-                            <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            <li><a href="../index.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                             </li>
                         </ul>
                         <!-- /.dropdown-user -->
@@ -248,7 +244,7 @@ function showSkillProfile(){
                                         <i class="fa fa-file-archive-o fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-center">
-                                        <div>View All Projects</div>
+                                        <div>View Projects by Technology</div>
                                     </div>
                                 </div>
                             </div>
