@@ -13,7 +13,7 @@
         
       </div>
     </div>
-
+<form action="check_login.php" method="POST" >
     <div class="element">
     <center>Staff & Search</center>
       <div class="icon">
@@ -34,7 +34,7 @@
      
 
       <button>Submit</button>
-
+</form>
     </div>
 
     <div class="clear"></div>
