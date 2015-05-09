@@ -86,7 +86,7 @@ include("header.php");
                   array_push($array, $row["0"]);
                   if(valid_project($row["project_id"]) || is_null($row["project_id"]))
                   {
-                    echo "<label><input type='checkbox' name=devs[] value='".$row['0']."'> <a href='#'>".$row['1']."</a> </label> ";
+                    echo "<label><input type='checkbox' name=devs[] value='".$row['0']."'> <a href='show_employee_details.php?id=".$row['0']."'>".$row['1']."</a> </label> ";
                   }
                 }
 
