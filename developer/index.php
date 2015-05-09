@@ -378,7 +378,7 @@ function showSkillProfile(){
   </div>
 
   <div class="row" id="editProfile">
-  <div class="col-lg-6">
+  <div class="col-lg-8 ">
     <div class="input-group">
       <input type="text" class="form-control" id="skillEntry" placeholder="Add Skill...">
       <span class="input-group-btn">
@@ -386,7 +386,7 @@ function showSkillProfile(){
       </span>
     </div><!-- /input-group -->
   </div>
-      <div class="col-lg-10">
+      <div class="col-lg-8">
           <ul class="list-group" id="listOfSkills">
           <?php
           foreach ($skills as $key => $value) {
