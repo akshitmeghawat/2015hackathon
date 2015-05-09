@@ -330,9 +330,9 @@ function showSkillProfile(){
                         <i class="fa fa-file-archive-o fa-fw"></i> Projects
                         <div class="pull-right">
                             <div class="input-group custom-search-form">
-                                <form action="index.php"><input type="text" class="form-control" placeholder="Search by Technology..."></form>
+                                <input type="text" class="form-control" id="project_search" placeholder="Search by Technology..."></form>
                                 <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">
+                                    <button class="btn btn-default" id="project_button" type="button">
                                         <i class="fa fa-search"></i>
                                     </button>
                                 </span>
@@ -341,17 +341,8 @@ function showSkillProfile(){
                     </div>
 
                     <!-- Table -->
-                    <table class="table">
-                      <tr class="first-row">
-                          <td colspan="1"></td>
-                          <td colspan="2">Project Name</td>
-                          <td colspan="5">Description</td>
-                      </tr>
-                      <tr>
-                          <td colspan='1'></td>
-                          <td colspan='2'>Analyzer</td>
-                          <td colspan='5'>Asia</td>
-                      </tr>
+                    <table class="table" id="response_project" >
+                     
                   </table>
 
               </div>
@@ -366,9 +357,9 @@ function showSkillProfile(){
                     <i class="fa fa-users fa-fw"></i> List of Developers
                     <div class="pull-right">
                         <div class="input-group custom-search-form">
-                            <input type="text" class="form-control" placeholder="Search by Technology...">
+                            <input type="text" class="form-control" id="skill_search" placeholder="Search by Technology...">
                             <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
+                                <button class="btn btn-default" id="skill_button" type="button">
                                     <i class="fa fa-search"></i>
                                 </button>
                             </span>
@@ -376,17 +367,8 @@ function showSkillProfile(){
                     </div>
                 </div>
                 <!-- Table -->
-                <table class="table">
-                  <tr class="first-row">
-                      <td colspan="1"></td>
-                      <td colspan="2">Name</td>
-                      <td colspan="5">Region</td>
-                  </tr>
-                  <tr>
-                      <td colspan='1'></td>
-                      <td colspan='2'>ABC</td>
-                      <td colspan='5'>Asia</td>
-                  </tr>
+                <table class="table" id="response_dev">
+                  
               </table>
 
           </div>
@@ -426,7 +408,35 @@ function showSkillProfile(){
 
 <!-- Custom Theme JavaScript -->
 <script src="../dist/js/sb-admin-2.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#project_button").click(function(){
+            var pr_term = $("#project_search").val();
+            if(pr_term.length < 1)
+            {
+                alert("Please enter something");
+            }
+            else{
+                $.ajax({url: "project_by_tech.php?skill="+pr_term, success: function(result){
+                 $("#response_project").html(result);
+    }});
+            }
+        });
 
+        $("#skill_button").click(function(){
+            var pr_term = $("#skill_search").val();
+            if(pr_term.length < 1)
+            {
+                alert("Please enter something");
+            }
+            else{
+                $.ajax({url: "dev_by_skill.php?skill="+pr_term, success: function(result){
+                 $("#response_dev").html(result);
+    }});
+            }
+        });
+    });
+</script>
 </body>
 
 </html>
