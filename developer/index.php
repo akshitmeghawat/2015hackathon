@@ -1,7 +1,8 @@
 <?php
+session_start();
 include '../connection.php';
 // Fixed dev-id for now
-$dev = 1;
+$dev = $_SESSION["user_id"];
 
 // Find developer's name
 $query_name = "SELECT name FROM developers WHERE dev_id='$dev';";
@@ -381,8 +382,16 @@ function showSkillProfile(){
   </div>
 
   <div class="row" id="editProfile">
+  <div class="col-lg-6">
+    <div class="input-group">
+      <input type="text" class="form-control" id="skillEntry" placeholder="Add Skill...">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" id="skillAdd">Add!</button>
+      </span>
+    </div><!-- /input-group -->
+  </div>
       <div class="col-lg-10">
-          <ul class="list-group">
+          <ul class="list-group" id="listOfSkills">
           <?php
           foreach ($skills as $key => $value) {
               echo "<li class='list-group-item'>".$value."</li>";
@@ -437,6 +446,18 @@ function showSkillProfile(){
             else{
                 $.ajax({url: "dev_by_skill.php?skill="+pr_term, success: function(result){
                  $("#response_dev").html(result);
+    }});
+            }
+        });
+        $("#skillAdd").click(function(){
+            var pr_term = $("#skillEntry").val();
+            if(pr_term.length < 1)
+            {
+                alert("Please enter something");
+            }
+            else{
+                $.ajax({url: "add_skill_dev.php?skill="+pr_term+"&dev="+<?php echo $dev;?>, success: function(result){
+                 $("#listOfSkills").html(result);
     }});
             }
         });

@@ -136,7 +136,7 @@
                             <div id="morris-area-chart">
                                  <ul class="" style="list-style-type: none;">
  <?php
-    $res = mysql_query("select * from projects order by end_day desc");
+    $res = mysql_query("select * from projects order by end_day asc");
     while ($row = mysql_fetch_assoc($res))
     {
         $pr_id = $row["project_id"];
