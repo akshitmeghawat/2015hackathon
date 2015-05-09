@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 09, 2015 at 01:38 AM
+-- Generation Time: May 09, 2015 at 04:08 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.5.19
 
@@ -30,19 +30,18 @@ CREATE TABLE IF NOT EXISTS `developers` (
 `dev_id` int(11) NOT NULL,
   `name` varchar(20) NOT NULL,
   `github_profile` text NOT NULL,
-  `tech` text NOT NULL,
-  `region` text NOT NULL
+  `tech` text NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `developers`
 --
 
-INSERT INTO `developers` (`dev_id`, `name`, `github_profile`, `tech`, `region`) VALUES
-(1, 'Mahesh Haldar', 'http://githuben.intranet.mckinsey.com/mahesh-kumar-haldar', 'rails, java, html, css', 'ASIA'),
-(2, 'Akshit Meghawat', 'http://githuben.intranet.mckinsey.com/akshit-meghawat', 'html, css, angularjs', 'ASIA'),
-(3, 'Abhinav', 'abhinav.git', '.net, rails', ''),
-(4, 'Apurva', 'Apurva.git', 'angularjs, rails', '');
+INSERT INTO `developers` (`dev_id`, `name`, `github_profile`, `tech`) VALUES
+(1, 'Mahesh Haldar', 'http://githuben.intranet.mckinsey.com/mahesh-kumar-haldar', 'rails, java, html, css'),
+(2, 'Akshit Meghawat', 'http://githuben.intranet.mckinsey.com/akshit-meghawat', 'html, css, angularjs'),
+(3, 'Abhinav', 'abhinav.git', '.net, rails'),
+(4, 'Apurva', 'Apurva.git', 'angularjs, rails');
 
 -- --------------------------------------------------------
 
@@ -53,21 +52,22 @@ INSERT INTO `developers` (`dev_id`, `name`, `github_profile`, `tech`, `region`) 
 CREATE TABLE IF NOT EXISTS `developer_project_map` (
 `id` int(11) NOT NULL,
   `dev_id` int(11) NOT NULL,
-  `project_id` int(11) NOT NULL
+  `project_id` int(11) NOT NULL,
+  `tech` text NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `developer_project_map`
 --
 
-INSERT INTO `developer_project_map` (`id`, `dev_id`, `project_id`) VALUES
-(1, 1, 1),
-(2, 2, 1),
-(3, 3, 6),
-(4, 4, 7),
-(7, 1, 10),
-(8, 1, 11),
-(9, 1, 12);
+INSERT INTO `developer_project_map` (`id`, `dev_id`, `project_id`, `tech`) VALUES
+(1, 1, 1, 'Rails,Java'),
+(2, 2, 1, ''),
+(3, 3, 6, ''),
+(4, 4, 7, ''),
+(7, 1, 10, 'Rails,Java'),
+(8, 1, 11, 'Rails,Java'),
+(9, 1, 12, 'Rails,Java');
 
 -- --------------------------------------------------------
 
@@ -135,13 +135,13 @@ INSERT INTO `projects` (`project_id`, `name`, `start_day`, `end_day`, `descripti
 (1, 'Pharm M & A', '2015-05-06', '2015-05-01', 'this is sample project', 'rails, angularjs, html, css, ionic'),
 (2, 'LEG', '2015-05-07', '2015-05-01', 'sample', 'rails, angularjs, bootstrap'),
 (3, 'test', '2015-01-07', '2015-06-06', 'asdasd', 'ios, swift'),
-(6, 'masnd', '2015-02-02', '2016-02-02', 'asd', 'canvas, angularjs, html, css'),
-(7, 'masnd', '2015-04-28', '2015-04-30', 'asd', ''),
+(6, 'project6', '2015-02-02', '2016-02-02', 'asd', 'canvas, angularjs, html, css'),
+(7, 'project7', '2015-04-28', '2015-04-30', 'asd', ''),
 (8, 'asdas', '2015-04-29', '2015-05-21', 'asd', ''),
-(9, 'masnd', '2015-05-05', '2015-05-21', '', ''),
-(10, 'masnd', '2015-05-05', '2015-05-21', 'asd', ''),
-(11, 'masnd', '2015-04-27', '2015-05-14', 'asd', ''),
-(12, '', '2015-04-28', '2015-05-13', 'asd', '');
+(9, 'project 9', '2015-05-05', '2015-05-21', '', ''),
+(10, 'project10', '2015-05-05', '2015-05-21', 'asd', ''),
+(11, 'project11', '2015-04-27', '2015-05-14', 'asd', ''),
+(12, 'project12', '2015-04-28', '2015-05-13', 'asd', '');
 
 -- --------------------------------------------------------
 

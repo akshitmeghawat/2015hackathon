@@ -313,6 +313,11 @@ function showSkillProfile(){
                             }
                             ?>
                         </li>
+                        <li class="list-group-item">Tech Used:&nbsp;
+                        <input id = "addTech" type="text" name="tech_used" size="70" placeholder="Technologies used by you"/>
+                        <input type="button" value="Add" id="addTechForProject"/>
+                        
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -449,6 +454,19 @@ function showSkillProfile(){
             else{
                 $.ajax({url: "add_skill_dev.php?skill="+pr_term+"&dev="+<?php echo $dev;?>, success: function(result){
                  $("#listOfSkills").html(result);
+    }});
+            }
+        });
+        $("#addTechForProject").click(function(){
+            var pr_term = $("#addTech").val();
+            if(pr_term.length < 1)
+            {
+                alert("Please enter something");
+            }
+            else{
+                var txt = $("#addTech").val();
+                $.ajax({url: "technology_developer_project.php?tech-submit="+txt+"&id="+<?php echo $dev;?>, success: function(result){
+            
     }});
             }
         });
