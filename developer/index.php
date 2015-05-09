@@ -316,6 +316,11 @@ function showSkillProfile(){
                             }
                             ?>
                         </li>
+                        <li class="list-group-item">Tech Used:&nbsp;<form action = "technology_developer_project.php?id=1" method="post">
+                        <input type="text" name="tech_used" size="70" placeholder="Technologies used by you"/>
+                        <input type="submit" value="Add" name="tech-submit"/>
+                        </form>
+                        </li>
                     </ul>
                 </div>
             </div>
