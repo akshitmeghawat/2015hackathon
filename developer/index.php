@@ -1,7 +1,8 @@
 <?php
+session_start();
 include '../connection.php';
 // Fixed dev-id for now
-$dev = 1;
+$dev = $_SESSION["user_id"];
 
 // Find developer's name
 $query_name = "SELECT name FROM developers WHERE dev_id='$dev';";
