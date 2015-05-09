@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 09, 2015 at 05:04 AM
+-- Generation Time: May 09, 2015 at 05:25 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.5.19
 
@@ -38,17 +38,17 @@ CREATE TABLE IF NOT EXISTS `developers` (
 --
 
 INSERT INTO `developers` (`dev_id`, `name`, `github_profile`, `tech`) VALUES
-(5, 'Aditi Joshi', 'https://github.com/Aditi', ''),
-(6, 'Mahesh Kumar', 'https://github.com/mahesh', ''),
-(7, 'Akshit Meghawat', 'https://github.com/akshit', ''),
-(8, 'Apurva Jain', 'https://github.com/apurva', ''),
-(9, 'Kakul Gupta', 'https://github.com/kakul', ''),
-(10, 'Abhimanyu Arya', 'https://github.com/abhimanyu', ''),
-(11, 'Niket Jain', 'https://github.com/niket', ''),
-(12, 'Atul ', 'https://github.com/atul', ''),
-(13, 'Mayanka', 'https://github.com/mayanka', ''),
-(14, 'Meenakshi', 'https://github.com/meenakshi', ''),
-(15, 'Vineetha', 'https://github.com/vineetha', '');
+(5, 'Aditi Joshi', 'https://github.com/Aditi', 'rails, html, css'),
+(6, 'Mahesh Kumar', 'https://github.com/mahesh', 'rails, coffescript'),
+(7, 'Akshit Meghawat', 'https://github.com/akshit', 'angularjs, html, css'),
+(8, 'Apurva Jain', 'https://github.com/apurva', 'rails, html, css, angularjs'),
+(9, 'Kakul Gupta', 'https://github.com/kakul', 'angularjs, html, css'),
+(10, 'Abhimanyu Arya', 'https://github.com/abhimanyu', 'ios, html, css, objectivec'),
+(11, 'Niket Jain', 'https://github.com/niket', 'ios, objectivec, html, css'),
+(12, 'Atul ', 'https://github.com/atul', 'angularjs, html, css'),
+(13, 'Mayanka', 'https://github.com/mayanka', 'angularjs, canvas'),
+(14, 'Meenakshi', 'https://github.com/meenakshi', 'ios, html, css'),
+(15, 'Vineetha', 'https://github.com/vineetha', 'photoshop, html, css');
 
 -- --------------------------------------------------------
 
@@ -140,11 +140,11 @@ CREATE TABLE IF NOT EXISTS `projects` (
 --
 
 INSERT INTO `projects` (`project_id`, `name`, `start_day`, `end_day`, `description`, `tech`) VALUES
-(13, 'MB RMA', '2015-04-29', '2015-05-15', 'sample description', 'null'),
-(14, 'Insurance Analyser', '2015-04-24', '2015-05-28', 'lorem ipsum', 'null'),
-(15, 'Pharma', '2015-05-05', '2015-05-11', 'lorem ipsum', 'null'),
-(16, 'ABC Insurance', '2015-05-05', '2015-05-10', 'lorem ipsum', 'null'),
-(17, 'Project Checklist', '2015-05-01', '2015-05-05', 'lorem ipsum', 'null');
+(13, 'MB RMA', '2015-04-29', '2015-05-15', 'sample description', 'canvas, html, css'),
+(14, 'Insurance Analyser', '2015-04-24', '2015-05-28', 'lorem ipsum', 'rails, html, css'),
+(15, 'Pharma', '2015-05-05', '2015-05-11', 'lorem ipsum', 'canvas, angularjs, html, css'),
+(16, 'ABC Insurance', '2015-05-05', '2015-05-10', 'lorem ipsum', 'rails, html, css'),
+(17, 'Project Checklist', '2015-05-01', '2015-05-05', 'lorem ipsum', 'php, html, css');
 
 -- --------------------------------------------------------
 
